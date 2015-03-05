@@ -9,7 +9,7 @@ a {
 
 .jumbotron {
 	background: url('../images/header.png');
-	max-width: 99%;
-    max-height: 99%;
+	width: 99%;
+    height: 99%;
 
 }
