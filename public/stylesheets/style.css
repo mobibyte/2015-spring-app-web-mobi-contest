@@ -8,5 +8,11 @@ a {
 }
 
 .jumbotron {
-	background: url('../images/header.png');
+	background: url('../images/header.jpg') no-repeat center center;
+	background-size: cover;
+	position: relative;
+}
+
+#header-text {
+	margin-top: -600px;
 }

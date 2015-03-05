@@ -2,23 +2,23 @@ extends layout
 
 block content
 	div.jumbotron
+		div.container#header-text
+			h1 #{title}
+			p It's easy, just fill out this form and you'll get stickers by the end of the workshop!
 
-	h1= title
-	p Welcome to #{title}
-	p Maaaaahh niggaah
+	div.container
+		form(name='poll', action='/poll', method='post')
+			div.row
+				div.form-group.col-md-6
+					label(for='first_name') First name
+					input(type='text', name='first_name', class='form-control')
 
-	form(name='poll', action='/poll', method='post')
-		div.row
-			div.form-group.col-md-6
-				label(for='first_name') First name
-				input(type='text', name='first_name', class='form-control')
+				div.form-group.col-md-6
+					label(for='last_name') Last name
+					input(type='text', name='first_name', class='form-control')
 
-			div.form-group.col-md-6
-				label(for='last_name') Last name
-				input(type='text', name='first_name', class='form-control')
+			div.form-group
+				label(for='fact') One random fact about yourself
+				input(type='text', name='fact', class='form-control')
 
-		div.form-group
-			label(for='fact') One random fact about yourself
-			input(type='text', name='fact', class='form-control')
-
-		input(type='submit' class='btn btn-success btn-block')
+			input(type='submit' class='btn btn-success btn-block')
