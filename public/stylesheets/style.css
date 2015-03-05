@@ -8,6 +8,9 @@ a {
 }
 
 .jumbotron {
-	height: 100%;
+	width: 125%;
 
+}
+.row {
+ padding: 5;
 }
