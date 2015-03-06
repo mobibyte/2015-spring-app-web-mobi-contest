@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-/*var Parse = require('parse').Parse;
-Parse.initialize("SNDo9ItaiD4Ae9GFI4LucsTTriYG9WfkUcUxh3Ez", "i04RRWl8ZThEtnjdSuvYrQPYM4O5TL40qMpvrAP6");*/
+var parse = require('parse').Parse;
+parse.initialize("SNDo9ItaiD4Ae9GFI4LucsTTriYG9WfkUcUxh3Ez", "i04RRWl8ZThEtnjdSuvYrQPYM4O5TL40qMpvrAP6");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -52,7 +52,7 @@ router.post('/submit', function(req, res) {
 
   //Validate data
   if(firstName != '' && lastName != '' && fact != '') {
-  	var TestObject = Parse.Object.extend("users");
+  	var TestObject = parse.Object.extend("users");
 		var testObject = new TestObject();
 		testObject.save(
 			{
