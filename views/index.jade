@@ -7,15 +7,17 @@ block content
 			p It's easy, just fill out this form and you'll get stickers by the end of the workshop!
 
 	div.container(ng-controller='IndexController')
-		{{ poll.$valid }}
+		div.alert.alert-danger(ng-if='!pol.$valid && hasSubmited')
+			p 
+				strong Error: 
+				All fields are required
 		h3 #{onMobileDevice}
-		form(name='poll', action='/submit', method='post')
+		form(name='poll', method='POST', action='/submit')
 			div.row
 				div.col-md-6
-					div.form-group(ng-class="{'has-error has-feedback': poll.$valid }")
+					div.form-group
 						label(for='first_name') First name
 						input.form-control(type='text', name='first_name', ng-model='user.first_name', required)
-						span.glyphicon.glyphicon-remove.form-control-feedback
 
 				div.col-md-6
 					div.form-group
@@ -25,8 +27,6 @@ block content
 			div.form-group
 				label(for='fact') One random fact about yourself
 				input.form-control(type='text', name='fact', ng-model='user.fact', required)
-
-			a(ng-click='funccc()') Test
 
 			input(type='submit' class='btn btn-success btn-block')
 		

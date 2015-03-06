@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var Parse = require('parse').Parse;
+Parse.initialize("SNDo9ItaiD4Ae9GFI4LucsTTriYG9WfkUcUxh3Ez", "i04RRWl8ZThEtnjdSuvYrQPYM4O5TL40qMpvrAP6");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -50,10 +52,19 @@ router.post('/submit', function(req, res) {
 
   //Validate data
   if(firstName != '' && lastName != '' && fact != '') {
-
-  	//Set cookie which expires in 24 hours
-	  res.cookie('submitted', firstName, { expires: new Date(Date.now() + 86400) });
-	  res.redirect('/submit');
+  	var TestObject = Parse.Object.extend("users");
+		var testObject = new TestObject();
+		testObject.save(
+			{
+				first_name: firstName,
+				last_name: lastName,
+				fact: fact
+			}
+		).then(function(object) {
+		  //Set cookie which expires in 24 hours
+		  res.cookie('submitted', firstName, { expires: new Date(Date.now() + 86400) });
+		  res.redirect('/submit');
+		});
   } else {
   	res.send('All forms are required');
   }
