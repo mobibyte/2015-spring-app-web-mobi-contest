@@ -9,6 +9,7 @@ a {
 
 .jumbotron {
 	background: url('../images/header.jpg') no-repeat center center;
+	background-color: #3C3C3C;
 	background-size: cover;
 	position: relative;
 }
