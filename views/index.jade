@@ -6,20 +6,27 @@ block content
 			h1 #{title}
 			p It's easy, just fill out this form and you'll get stickers by the end of the workshop!
 
-	div.container
+	div.container(ng-controller='IndexController')
+		{{ poll.$valid }}
 		h3 #{onMobileDevice}
 		form(name='poll', action='/submit', method='post')
 			div.row
-				div.form-group.col-md-6
-					label(for='first_name') First name
-					input(type='text', name='first_name', class='form-control')
+				div.col-md-6
+					div.form-group(ng-class="{'has-error has-feedback': poll.$valid }")
+						label(for='first_name') First name
+						input.form-control(type='text', name='first_name', ng-model='user.first_name', required)
+						span.glyphicon.glyphicon-remove.form-control-feedback
 
-				div.form-group.col-md-6
-					label(for='last_name') Last name
-					input(type='text', name='last_name', class='form-control')
+				div.col-md-6
+					div.form-group
+						label(for='last_name') Last name
+						input.form-control(type='text', name='last_name', ng-model='user.last_name', required)
 
 			div.form-group
 				label(for='fact') One random fact about yourself
-				input(type='text', name='fact', class='form-control')
+				input.form-control(type='text', name='fact', ng-model='user.fact', required)
+
+			a(ng-click='funccc()') Test
 
 			input(type='submit' class='btn btn-success btn-block')
+		

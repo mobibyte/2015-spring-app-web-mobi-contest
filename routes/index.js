@@ -11,30 +11,34 @@ router.get('/', function(req, res, next) {
 	}
 
 	var isMobile = {
-    Android: function() {
-        return userAgent.match(/Android/i);
+  	Android: function() {
+  		return userAgent.match(/Android/i);
     },
     BlackBerry: function() {
-        return userAgent.match(/BlackBerry/i);
+    	return userAgent.match(/BlackBerry/i);
     },
     iOS: function() {
-        return userAgent.match(/iPhone|iPad|iPod/i);
+      return userAgent.match(/iPhone|iPad|iPod/i);
     },
     Opera: function() {
-        return userAgent.match(/Opera Mini/i);
+      return userAgent.match(/Opera Mini/i);
     },
     Windows: function() {
-        return userAgent.match(/IEMobile/i);
+      return userAgent.match(/IEMobile/i);
     },
     any: function() {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+      return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
     }
-};
+	};
 
-	res.render('index', { 
+	if(isMobile.any()) {
+		res.send('segmentation fault 11');
+	} else {
+		res.render('index', { 
 	  	title: 'Mobi Sticker Challenge',
 	  	onMobileDevice: isMobile.any()
 	  });
+	}
 	
 });
 
