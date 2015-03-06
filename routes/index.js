@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var Parse = require('parse').Parse;
-Parse.initialize("SNDo9ItaiD4Ae9GFI4LucsTTriYG9WfkUcUxh3Ez", "i04RRWl8ZThEtnjdSuvYrQPYM4O5TL40qMpvrAP6");
+/*var Parse = require('parse').Parse;
+Parse.initialize("SNDo9ItaiD4Ae9GFI4LucsTTriYG9WfkUcUxh3Ez", "i04RRWl8ZThEtnjdSuvYrQPYM4O5TL40qMpvrAP6");*/
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
