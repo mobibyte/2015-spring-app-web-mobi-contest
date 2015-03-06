@@ -80,4 +80,25 @@ router.get('/submit', function(req, res) {
   });
 });
 
+router.get('/winner', function(req, res) {
+	var User = parse.Object.extend("users");
+
+	var query = new parse.Query(User);
+	query.find({
+	  success: function(data) {
+	  	var keyArray = Object.keys(data);
+	  	var rand = Math.floor(Math.random() * keyArray.length-1);
+
+	  	var winner = data[rand];
+
+	  	res.send(winner);
+	  }
+
+	});
+});
+
+router.get('/admin', function(req, res) {
+	res.render('winner');
+});
+
 module.exports = router;

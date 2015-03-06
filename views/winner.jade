@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	div.container.text-center(ng-controller='WinnerController')
+		h3 And the winner is...
+		button.btn.bnt-block.btn-primary(ng-click='findWinner()', ng-if='!hasWinner') Find the winner!
+		div(ng-if='hasWinner')
+			h1 {{ winner.first_name }} {{ winner.last_name }}
+			"{{ winner.fact }}"
